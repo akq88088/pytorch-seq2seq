@@ -27,30 +27,13 @@ torch.manual_seed(SEED)
 torch.cuda.manual_seed(SEED)
 torch.backends.cudnn.deterministic = True
 
-
-# Next, we'll create the tokenizers. A tokenizer is used to turn a string containing a sentence into a list of individual tokens that make up that string, e.g. "good morning!" becomes ["good", "morning", "!"]. We'll start talking about the sentences being a sequence of tokens from now, instead of saying they're a sequence of words. What's the difference? Well, "good" and "morning" are both words and tokens, but "!" is a token, not a word. 
-# 
-# spaCy has model for each language ("de_core_news_sm" for German and "en_core_web_sm" for English) which need to be loaded so we can access the tokenizer of each model. 
-# 
-# **Note**: the models must first be downloaded using the following on the command line: 
-# ```
-# python -m spacy download en_core_web_sm
-# python -m spacy download de_core_news_sm
-# ```
-# 
-# We load the models as such:
-
-
-
+spacy_zh = spacy.load('zh_core_web_sm')
 spacy_de = spacy.load('de_core_news_sm')
 spacy_en = spacy.load('en_core_web_sm')
-
 
 # Next, we create the tokenizer functions. These can be passed to torchtext and will take in the sentence as a string and return the sentence as a list of tokens.
 # 
 # In the paper we are implementing, they find it beneficial to reverse the order of the input which they believe "introduces many short term dependencies in the data that make the optimization problem much easier". We copy this by reversing the German sentence after it has been transformed into a list of tokens.
-
-
 
 def tokenize_de(text):
     """
@@ -64,12 +47,12 @@ def tokenize_en(text):
     """
     return [tok.text for tok in spacy_en.tokenizer(text)]
 
+def tokenize_zh(text):
+    return [tok.text for tok in spacy_zh.tokenizer(text)]
 
 # torchtext's `Field`s handle how data should be processed. All of the possible arguments are detailed [here](https://github.com/pytorch/text/blob/master/torchtext/data/field.py#L61). 
 # 
 # We set the `tokenize` argument to the correct tokenization function for each, with German being the `SRC` (source) field and English being the `TRG` (target) field. The field also appends the "start of sequence" and "end of sequence" tokens via the `init_token` and `eos_token` arguments, and converts all words to lowercase.
-
-
 
 SRC = Field(tokenize = tokenize_de, 
             init_token = '<sos>', 
@@ -140,7 +123,7 @@ print(f"Unique tokens in target (en) vocabulary: {len(TRG.vocab)}")
 
 
 
-device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 # device = torch.device('cpu')
 print("device")
 print(device)
