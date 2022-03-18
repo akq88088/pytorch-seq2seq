@@ -5,7 +5,7 @@ RNN最大的特性是會依照輸入資料的順序不同，而導致預測出�
 下圖為其基本結構，其中<img src="http://chart.googleapis.com/chart?cht=tx&chl= X_{t-1}" style="border:none;">
 <!-- ![RNN](/image/RNN.png "RNN") -->
 <img width="367" height="278" src="/image/RNN.png">
-[ML Lecture 21-1: Recurrent Neural Network] (https://www.youtube.com/watch?v=xCGidAeyS4M&ab_channel=Hung-yiLee)  
+[ML Lecture 21-1: Recurrent Neural Network](https://www.youtube.com/watch?v=xCGidAeyS4M&ab_channel=Hung-yiLee/)  
 
 ## Long Short-Term Memory(LSTM)  
 LSTM為RNN的變體，其與RNN相同會依照資料輸入順序的不同，而產生不同的預測的結果，特別的是LSTM新增了三個Gate:input gate, forget gate and output gate
