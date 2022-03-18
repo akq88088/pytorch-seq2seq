@@ -6,7 +6,7 @@ RNN最大的特性是會依照輸入資料的順序不同，而導致預測出�
 <!-- ![RNN](/image/RNN.png "RNN") -->
 <img width="367" height="278" src="/image/RNN.png">
 [test](https://www.youtube.com/watch?v=xCGidAeyS4M&ab_channel=Hung-yiLee)  
-## Long Short-Term Memory(LSTM)
+## Long Short-Term Memory(LSTM)  
 LSTM為RNN的變體，其與RNN相同會依照資料輸入順序的不同，而產生不同的預測的結果，特別的是LSTM新增了三個Gate:input gate, forget gate and output gate
 ## Sequence to Sequence
 Sequence to Sequence由扮演encoder與decoder的兩個不同Long Short-Term Memory所組成
