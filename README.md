@@ -5,7 +5,7 @@ RNN最大的特性是會依照輸入資料的順序不同，而導致預測出�
 下圖為其基本結構，其中<img src="http://chart.googleapis.com/chart?cht=tx&chl= X_{t-1}" style="border:none;">
 <!-- ![RNN](/image/RNN.png "RNN") -->
 <img width="367" height="278" src="/image/RNN.png">
-圖片來源:ML Lecture 21-1: Recurrent Neural Network 
+圖片來源:ML Lecture 21-1: Recurrent Neural Network   
 https://www.youtube.com/watch?v=xCGidAeyS4M&ab_channel=Hung-yiLee/
 
 ## Long Short-Term Memory(LSTM)  
