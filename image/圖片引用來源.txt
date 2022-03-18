@@ -1,0 +1,2 @@
+
+從零開始的 Sequence to Sequence http://zake7749.github.io/2017/09/28/Sequence-to-Sequence-tutorial/
