@@ -11,11 +11,14 @@ RNN存在梯度消失與梯度爆炸的問題，舉例來說，下圖為一個RN
 <img src="http://chart.googleapis.com/chart?cht=tx&chl= y_{1}" style="border:none;">到<img src="http://chart.googleapis.com/chart?cht=tx&chl= y_{1000}" style="border:none;">共1000筆輸出，該RNN進行倒傳遞時，我們表示其梯度如下式
 
 <img src="/image/latex_rnn_gradient_problem.gif">
+
 ## Long Short-Term Memory(LSTM)  
 LSTM為RNN的變體，其與RNN相同會依照資料輸入順序的不同，而產生不同的預測的結果，特別的是LSTM新增了三個Gate:input gate, forget gate and output gate
+
 ## Sequence to Sequence
 Sequence to Sequence由扮演encoder與decoder的兩個不同Long Short-Term Memory所組成
-##To Do List
+
+## To Do List
 ### Attention-Based Sequence to Sequence
 ### self-attention(Attention is all you need)
 ### Reinforcement Learning
