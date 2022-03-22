@@ -7,11 +7,14 @@ RNN最大的特性是會依照輸入資料的順序不同，而導致預測出�
 
 <a href="https://www.youtube.com/watch?v=xCGidAeyS4M&ab_channel=Hung-yiLee/">圖片來源: ML Lecture 21-1: Recurrent Neural Network</a>
 
-RNN存在梯度消失與梯度爆炸的問題，舉例來說，下圖為一個RNN範例，輸入長度為1000且所有值都為1的序列，RNN會產生
+RNN存在梯度消失與梯度爆炸的問題，這邊我們舉一個例子，下圖為一個RNN範例，輸入長度為1000且所有值都為1的序列，RNN會產生
 <img src="http://chart.googleapis.com/chart?cht=tx&chl= y_{1}" style="border:none;">到<img src="http://chart.googleapis.com/chart?cht=tx&chl= y_{1000}" style="border:none;">共1000筆輸出，該RNN進行倒傳遞時，我們簡單表示其梯度如下式:
 
 <!-- <img src="/image/latex_rnn_gradient_problem.gif"> -->
 <img src="http://chart.googleapis.com/chart?cht=tx&chl= \frac{\partial{a_{999}}}{\partial{z_1}}=f'(z_{999})wf'(z_{998})w...f'(z_{1})" style="border:none;">
+
+其中<img src="http://chart.googleapis.com/chart?cht=tx&chl= z_i" style="border:none;">為第i個資料輸入隱藏層激活函數的值，<img src="http://chart.googleapis.com/chart?cht=tx&chl= a_i" style="border:none;">為第i個輸入經過隱藏層的激活函數的值。
+
 ## Long Short-Term Memory(LSTM)  
 LSTM為RNN的變體，其與RNN相同會依照資料輸入順序的不同，而產生不同的預測的結果，特別的是LSTM新增了三個Gate:input gate, forget gate and output gate
 
