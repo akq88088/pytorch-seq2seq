@@ -8,12 +8,15 @@ RNN最大的特性是會依照輸入資料的順序不同，而導致預測出�
 <a href="https://www.youtube.com/watch?v=xCGidAeyS4M&ab_channel=Hung-yiLee/">圖片來源: ML Lecture 21-1: Recurrent Neural Network</a>
 
 RNN存在梯度消失與梯度爆炸的問題，這邊我們舉一個例子，下圖為一個RNN範例，輸入長度為1000且所有值都為1的序列，RNN會產生
-<img src="http://chart.googleapis.com/chart?cht=tx&chl= y_{1}" style="border:none;">到<img src="http://chart.googleapis.com/chart?cht=tx&chl= y_{1000}" style="border:none;">共1000筆輸出，該RNN進行倒傳遞時，我們簡單表示其梯度如下式:
+<img src="http://chart.googleapis.com/chart?cht=tx&chl= y_{1}" style="border:none;">到<img src="http://chart.googleapis.com/chart?cht=tx&chl= y_{1000}" style="border:none;">共1000筆輸出。
 
-<!-- <img src="/image/latex_rnn_gradient_problem.gif"> -->
+<img src="/image/rnn_problem_example.png">
+
+這邊我們只關注連到memory的權重W，當RNN要進行倒傳遞(backpropagation through time)來修正權重W時，其梯度簡單表示如下式:
+
 <img src="http://chart.googleapis.com/chart?cht=tx&chl= \frac{\partial{a_{999}}}{\partial{z_1}}=f'(z_{999})wf'(z_{998})w...f'(z_{1})" style="border:none;">
 
-其中<img src="http://chart.googleapis.com/chart?cht=tx&chl= z_i" style="border:none;">為第i個資料輸入隱藏層激活函數的值，<img src="http://chart.googleapis.com/chart?cht=tx&chl= a_i" style="border:none;">為第i個輸入經過隱藏層的激活函數的值。
+其中<img src="http://chart.googleapis.com/chart?cht=tx&chl= z_i" style="border:none;">為輸入激活函數的值，<img src="http://chart.googleapis.com/chart?cht=tx&chl= a_i" style="border:none;">為經過激活函數輸出的值，<img src="http://chart.googleapis.com/chart?cht=tx&chl= f'(z_i)" style="border:none;">為激活函式對<img src="http://chart.googleapis.com/chart?cht=tx&chl= z_i" style="border:none;">的偏微分。可以看出，在輸入序列很長的情況下，若要更新權重W，其梯度會是多項連乘，這時若W大於1，其梯度會非常大，稱為梯度爆炸，反之若梯度小於1，梯度會接近0造成網路根本沒法更新，稱為梯度消失。
 
 ## Long Short-Term Memory(LSTM)  
 LSTM為RNN的變體，其與RNN相同會依照資料輸入順序的不同，而產生不同的預測的結果，特別的是LSTM新增了三個Gate:input gate, forget gate and output gate
