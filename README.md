@@ -16,7 +16,7 @@ RNN存在梯度消失與梯度爆炸的問題，這邊我們舉一個例子，�
 
 <img src="http://chart.googleapis.com/chart?cht=tx&chl= \frac{\partial{a_{999}}}{\partial{z_1}}=f'(z_{999})wf'(z_{998})w...f'(z_{1})" style="border:none;">
 
-其中<img src="http://chart.googleapis.com/chart?cht=tx&chl= z_i" style="border:none;">為輸入激活函數的值，<img src="http://chart.googleapis.com/chart?cht=tx&chl= a_i" style="border:none;">為<img src="http://chart.googleapis.com/chart?cht=tx&chl= z_i" style="border:none;">經過激活函數輸出的值，<img src="http://chart.googleapis.com/chart?cht=tx&chl= f'(z_i)" style="border:none;">為激活函式對<img src="http://chart.googleapis.com/chart?cht=tx&chl= z_i" style="border:none;">的偏微分。可以看出，在輸入序列很長的情況下，若要得到<img src="http://chart.googleapis.com/chart?cht=tx&chl= f'(z_1)" style="border:none;">的梯度來更新權重W，其梯度會是多項連乘，這時若W大於1，梯度會非常大，稱為梯度爆炸，反之若W小於1，梯度會接近0造成網路根本沒法更新，稱為梯度消失。
+其中<img src="http://chart.googleapis.com/chart?cht=tx&chl= z_i" style="border:none;">為輸入激活函數的值，<img src="http://chart.googleapis.com/chart?cht=tx&chl= a_i" style="border:none;">為<img src="http://chart.googleapis.com/chart?cht=tx&chl= z_i" style="border:none;">經過激活函數輸出的值，<img src="http://chart.googleapis.com/chart?cht=tx&chl= f'(z_i)" style="border:none;">為激活函式對<img src="http://chart.googleapis.com/chart?cht=tx&chl= z_i" style="border:none;">的偏微分。可以看出，在輸入序列很長的情況下，若要得到<img src="http://chart.googleapis.com/chart?cht=tx&chl= z_1" style="border:none;">的梯度來更新權重W，其梯度會是多項連乘，這時若W大於1，梯度會非常大，稱為梯度爆炸，反之若W小於1，梯度會接近0造成網路根本沒法更新，稱為梯度消失。
 
 ## Long Short-Term Memory(LSTM)  
 LSTM為RNN的變體，其與RNN相同會依照資料輸入順序的不同，而產生不同的預測的結果，特別的是LSTM新增了三個Gate:input gate, forget gate and output gate
