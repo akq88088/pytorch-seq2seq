@@ -10,7 +10,7 @@ RNN最大的特性是會依照輸入資料的順序不同，而導致預測出�
 RNN存在梯度消失與梯度爆炸的問題，這邊我們舉一個例子，下圖為一個RNN範例，輸入長度為1000且所有值都為1的序列，RNN會產生
 <img src="http://chart.googleapis.com/chart?cht=tx&chl= y_{1}" style="border:none;">到<img src="http://chart.googleapis.com/chart?cht=tx&chl= y_{1000}" style="border:none;">共1000筆輸出。
 
-<img src="/image/rnn_problem_example.png">
+<img width="404" height="286" src="/image/rnn_problem_example.png">
 
 這邊我們只關注連到memory的權重W，當RNN要進行倒傳遞(backpropagation through time)來修正權重W時，其梯度簡單表示如下式:
 
