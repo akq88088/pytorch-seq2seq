@@ -30,8 +30,14 @@ input gate負責控制輸入資料要進入多少到memory裡，forget gate負�
 LSTM同樣存在一些問題，將LSTM應用在實際問題時，其輸出的序列不能大於輸入序列，像是輸入一段文章產生該文章的分類或是輸入一個句子輸出每個詞的詞性這些應用都沒有限制，但像是翻譯或問答等問題，其輸出序列可能會比輸入序列還要長，這時候LSTM就無法直接應用。
 
 ## Sequence to Sequence
-為了解決LSTM其輸出序列長度不能大於輸入序列的問題，Sequence to Sequence誕生了，Sequence to Sequence由扮演encoder與decoder的兩個不同LSTM所組成，encoder其輸入為序列，輸出為向量，
-decoder輸入為向量，輸出為序列，
+Sequence to Sequence其目的為解決LSTM其輸出序列長度不能大於輸入序列的問題，其由扮演encoder與decoder的兩個不同LSTM所組成，encoder其輸入為序列，輸出為向量，
+decoder輸入為向量，輸出為序列，下圖為Sequence to Sequence的基本結構:
+
+<img width="528" height="159" src="/image/seq2seq.png">
+
+<a href="http://zake7749.github.io/2017/09/28/Sequence-to-Sequence-tutorial/">圖片來源: 從零開始的 Sequence to Sequence</a>
+
+Sequence to Sequence透過encoder將序列轉換為含有該序列信息的向量，再將該向量傳給decoder，decoder依據向量的內容與開始信號<START>，產生對應的詞，並不斷將產生的詞再次輸入decoder產生下一個詞，直到出現停止信號<END>，這種流程讓Sequence to Sequence可以產生大於輸入序列長度的輸出序列，不會被輸入序列長度所限制。
 
 ## To Do List
 ### Attention-Based Sequence to Sequence
