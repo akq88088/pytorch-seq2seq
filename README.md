@@ -37,7 +37,7 @@ decoder輸入為向量，輸出為序列，下圖為Sequence to Sequence的基�
 
 <a href="http://zake7749.github.io/2017/09/28/Sequence-to-Sequence-tutorial/">圖片來源: 從零開始的 Sequence to Sequence</a>
 
-Sequence to Sequence透過encoder將序列轉換為含有該序列信息的向量，再將該向量傳給decoder，decoder依據向量的內容與開始信號，產生對應的詞，每個時間點decoder會將上個時間點的輸出當作輸入，來預測目前時間點應該出現的詞，直到出現停止信號則停止輸出，這種流程讓Sequence to Sequence可以產生大於輸入序列長度的輸出序列，不會被輸入序列長度所限制。
+Sequence to Sequence透過encoder將序列轉換為含有該序列信息的向量，再將該向量傳給decoder，decoder依據向量的內容與開始信號，產生對應的詞，每個時間點decoder會將上個時間點自己產生的輸出當作目前時間點的輸入，來預測目前時間點應該出現的詞，直到出現停止信號則停止輸出，這種流程讓Sequence to Sequence可以產生大於輸入序列長度的輸出序列，不會被輸入序列長度所限制。
 
 ## To Do List
 ### Attention-Based Sequence to Sequence
